@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Barber Shop</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+    <img src="assets/logo.png" alt="Logo Barber Shop" class="hero__logo reveal" />
+    <h1 class="hero__title reveal">Barber Shop</h1>
+    <p class="hero__subtitle reveal">Agende seu horário</p>
+    <a href="agendar.html" class="btn btn--primary hero__cta reveal">📅 Agendar</a>
+  </header>
+
+ <!-- SERVIÇOS -->
+<section class="services-section" aria-label="Serviços">
+  <h2 class="services-title reveal">Serviços</h2>
+  <div class="services">
+    <div class="service card reveal">
+      <img src="assets/cabelo.png" alt="Corte Masculino" class="service__img" />
+      <h3 class="service__title">Cabelo</h3>
+      <a href="cabelo.html" class="btn btn--secondary">📅 Agendar</a>
+    </div>
+
+    <div class="service card reveal">
+      <img src="assets/barba.png" alt="Barba" class="service__img" />
+      <h3 class="service__title">Barba</h3>
+      <a href="barba.html" class="btn btn--secondary">📅 Agendar</a>
+    </div>
+
+    <div class="service card reveal">
+      <img src="assets/sobrancelha.png" alt="Sobrancelha" class="service__img" />
+      <h3 class="service__title">Sobrancelha</h3>
+      <a href="sobrancelha.html" class="btn btn--secondary">📅 Agendar</a>
+    </div>
+
+    <div class="service card reveal">
+      <img src="assets/quimica.png" alt="Pigmentação" class="service__img" />
+      <h3 class="service__title">Quimica</h3>
+      <a href="quimica.html" class="btn btn--secondary">📅 Agendar</a>
+    </div>
+
+    <div class="service card reveal">
+      <img src="assets/risco.png" alt="Hidratação" class="service__img" />
+      <h3 class="service__title">Riscos</h3>
+      <a href="risco.html" class="btn btn--secondary">📅 Agendar</a>
+    </div>
+
+    <div class="service card reveal">
+      <img src="assets/combo.png" alt="Corte na Máquina" class="service__img" />
+      <h3 class="service__title">Combos</h3>
+      <a href="combo.html" class="btn btn--secondary">📅 Agendar</a>
+    </div>
+  </div>
+</section>
+
+  <!-- LOCALIZAÇÃO / RODAPÉ -->
+  <footer class="location">
+    <img src="assets/logo.png" alt="Logo Barber Shop" class="location__logo reveal" />
+    <p class="location__address reveal">
+      Rua Exemplo, 123 — Montes Claros, MG
+    </p>
+    <a href="agendar.html" class="btn btn--primary reveal">
+      📅 Agendar
+    </a>
+  </footer>
+
+  <!-- Reveal on Scroll -->
+  <script>
+    document.documentElement.style.scrollBehavior = 'smooth';
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('show');
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

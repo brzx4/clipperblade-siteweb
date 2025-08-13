@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agendar Horário - Barber Shop</title>
+  <link rel="stylesheet" href="servicos.css">
+  <style>
+    .calendario { padding: 20px; display: flex; flex-direction: column; gap: 12px; }
+    .dias { display: flex; gap: 10px; flex-wrap: wrap; }
+    .dia { padding: 12px; background: #fff; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); cursor: pointer; }
+    .horarios { padding: 20px; display: flex; flex-wrap: wrap; gap: 10px; }
+    .horario { padding: 10px 14px; background: #c19a6b; color: #fff; border-radius: 6px; cursor: pointer; }
+    .horario.selecionado { background: #a67c52; }
+    .btn-proximo { display: none; margin-top: 20px; padding: 14px 24px; background: #c19a6b; color: #fff; border-radius: 999px; text-decoration: none; text-align: center; font-weight: bold; }
+    .btn-proximo.show { display: inline-block; }
+  </style>
+</head>
+<body>
+  <header class="topo-agendar">
+    <h1>Escolha a Data e Horário</h1>
+    <p>Clique no dia para ver os horários disponíveis</p>
+  </header>
+
+  <main class="calendario">
+    <div class="dias">
+      <div class="dia">13/08</div>
+      <div class="dia">14/08</div>
+      <div class="dia">15/08</div>
+      <div class="dia">16/08</div>
+      <div class="dia">17/08</div>
+    </div>
+
+    <div class="horarios"></div>
+    <a href="finalizar.html" class="btn-proximo">Próximo</a>
+  </main>
+
+  <script>
+    const horariosContainer = document.querySelector('.horarios');
+    const btnProximo = document.querySelector('.btn-proximo');
+
+    document.querySelectorAll('.dia').forEach(dia => {
+      dia.addEventListener('click', () => {
+        horariosContainer.innerHTML = '';
+        btnProximo.classList.remove('show');
+
+        let hora = 8, minuto = 0;
+        while(hora < 18 || (hora === 17 && minuto <= 30)){
+          const h = hora.toString().padStart(2,'0');
+          const m = minuto.toString().padStart(2,'0');
+          const horarioBtn = document.createElement('div');
+          horarioBtn.classList.add('horario');
+          horarioBtn.textContent = `${h}:${m}`;
+          horariosContainer.appendChild(horarioBtn);
+
+          horarioBtn.addEventListener('click', () => {
+            document.querySelectorAll('.horario').forEach(h => h.classList.remove('selecionado'));
+            horarioBtn.classList.add('selecionado');
+            btnProximo.classList.add('show');
+          });
+
+          minuto += 30;
+          if(minuto === 60){ minuto = 0; hora++; }
+        }
+      });
+    });
+  </script>
+</body>
+</html>

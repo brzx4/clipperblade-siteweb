@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agendamento Confirmado - Barber Shop</title>
+  <link rel="stylesheet" href="servicos.css">
+  <style>
+    .confirmacao-container {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      text-align: center;
+    }
+    .confirmacao-container h2 {
+      color: #c19a6b;
+      font-size: 1.8rem;
+    }
+    .info {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      font-size: 1rem;
+      text-align: left;
+      max-width: 400px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+    .info p strong {
+      color: #111;
+    }
+    .btn-inicio {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 14px 24px;
+      background: #c19a6b;
+      color: #fff;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.2s ease;
+    }
+    .btn-inicio:hover {
+      background: #a67c52;
+    }
+  </style>
+</head>
+<body>
+  <header class="topo-agendar">
+    <h1>Agendamentos</h1>
+    <p>Confira os detalhes do seu agendamento</p>
+  </header>
+
+  <main class="confirmacao-container">
+    <h2>Agendamento Realizado!</h2>
+    <div class="info" id="dados-cliente"></div>
+    <a href="index.html" class="btn-inicio">Voltar ao Início</a>
+  </main>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+
+    const nome = params.get('nome');
+    const sobrenome = params.get('sobrenome');
+    const telefone = params.get('telefone');
+    const servico = params.get('servico');
+    const barbeiro = params.get('barbeiro');
+    const data = params.get('data');
+    const horario = params.get('horario');
+    const endereco = "Rua Exemplo, 123 — Montes Claros, MG";
+
+    document.getElementById('dados-cliente').innerHTML = `
+      <p><strong>Nome:</strong> ${nome} ${sobrenome}</p>
+      <p><strong>Telefone:</strong> ${telefone}</p>
+      <p><strong>Serviço:</strong> ${servico}</p>
+      <p><strong>Barbeiro(a):</strong> ${barbeiro}</p>
+      <p><strong>Data:</strong> ${data}</p>
+      <p><strong>Horário:</strong> ${horario}</p>
+      <p><strong>Endereço:</strong> ${endereco}</p>
+    `;
+  </script>
+</body>
+</html>

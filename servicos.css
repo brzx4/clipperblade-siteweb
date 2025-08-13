@@ -1,0 +1,117 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f9f9f9;
+    color: #111;
+}
+
+/* TOPO */
+.topo-agendar {
+    text-align: center;
+    padding: 24px 16px;
+    background: #111;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.topo-agendar h1 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.topo-agendar p {
+    margin-top: 6px;
+    font-size: 1rem;
+    color: #ccc;
+}
+
+/* SERVIÇOS */
+.servicos-agendar {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.servico-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #fff;
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    color: #111;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.servico-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+.servico-item img {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/* BOTÃO DE CONFIRMAR */
+.btn-confirmar {
+    padding: 14px 24px;
+    background: #c19a6b;
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(193,154,107,0.3);
+    transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+    margin-top: 20px;
+}
+
+.btn-confirmar:hover {
+    background: #a67c52;
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(193,154,107,0.4);
+}
+
+/* RODAPÉ */
+.rodape-agendar {
+    text-align: center;
+    padding: 24px 16px;
+    background: #fff;
+    border-top: 1px solid #ddd;
+    font-size: 0.95rem;
+    color: #666;
+}
+
+/* RESPONSIVO */
+@media (max-width:480px){
+    .topo-agendar h1 {
+        font-size: 1.6rem;
+    }
+
+    .servico-item {
+        font-size: 0.95rem;
+        padding: 14px;
+    }
+
+    .servico-item img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .btn-confirmar {
+        width: 100%;
+        font-size: 0.95rem;
+        padding: 12px 0;
+    }
+}
